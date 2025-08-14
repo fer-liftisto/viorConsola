@@ -1,5 +1,6 @@
 ###Fer######################
 from icecream import ic
+from funfer import tablas
 # ic.disable()
 def FENamatriz(FEN):
     ''' Recive una posición FEN y 
@@ -54,19 +55,23 @@ def imprimir_tablero(tablero, color):
     
     #ic(tablero)
     #ic(color)
-    tablecolor = list(zip(tablero, color))
+    tablecolor = tablas.poner_color(tablero, color)
     print("\n  Tablero de ajedrez:")
     print("    a   b   c   d   e   f   g   h")
     print("  +" + "---+"*8)
-    ic(tablecolor)
+    #ic(tablecolor)
     for i, fila in enumerate(tablecolor):
         print(f"{8-i} |", end="")  
-        ic(fila)
-        filacol= list(zip(fila))  # Transponer para iterar por piezas y colores
-        for pieza in filacol:
-            ic(pieza[0])
-            if pieza[0] == 'W':
+        # Transponer para iterar por piezas y colores
+        for pieza in fila:
+            #ic(pieza[0])
+            if pieza[1] == 'W':
                 print(f" {pieza[0]} |", end="")
+            if pieza[1] == 'B':
+                print(f" {pieza[0]} |", end="")
+            if pieza[1] == ' ':
+                print(f" {pieza[0]} |", end="")
+            
         print(f" {8-i}")
         print("  +" + "---+"*8)
     print("    a   b   c   d   e   f   g   h")
