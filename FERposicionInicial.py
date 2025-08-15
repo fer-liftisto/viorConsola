@@ -1,81 +1,8 @@
+
 ###Fer######################
 from icecream import ic
-from funfer import tablas
+from funfer import tablas, traduce, fen
 # ic.disable()
-def FENamatriz(FEN):
-    ''' Recive una posición FEN y 
-	   Devuelve una matriz tablero'''
-    ta=[[' ' for f in range(8)]for c in range(8)]
-    co = [[' ' for f in range(8)]for c in range(8)] #title
-    f=0
-    c=0
-    
-    for i in FEN:
-        if i.isnumeric():
-            c += int(i)
-        
-        elif i.isalpha():
-            ta[f][c] = i
-            if i.islower():
-                co[f][c] = 'B'
-            else:
-                co[f][c] = 'W'
-            c += 1
-            
-        elif i == '/':
-            f += 1
-            c = 0
-    #ic(co)
-    #ic(ta)
-    return ta, co
-
-#########################		
-def traduce(f):
-		''' Traduce de carácter a símbolo '''
-		# '♟♜♞♝♛♚' #
-		
-		f= f.replace('R','♜')
-		f= f.replace('N','♞')
-		f= f.replace('B','♝')
-		f= f.replace('Q','♛')
-		f= f.replace('K','♚')
-		f= f.replace('P','♟')
-		
-		f= f.replace('r','♜')
-		f= f.replace('n','♞')
-		f= f.replace('b','♝')
-		f= f.replace('q','♛')
-		f= f.replace('k','♚')
-		f= f.replace('p','♟')
-			
-		return f
-		
-
-def imprimir_tablero(tablero, color):
-    
-    #ic(tablero)
-    #ic(color)
-    tablecolor = tablas.poner_color(tablero, color)
-    print("\n  Tablero de ajedrez:")
-    print("    a   b   c   d   e   f   g   h")
-    print("  +" + "---+"*8)
-    #ic(tablecolor)
-    for i, fila in enumerate(tablecolor):
-        print(f"{8-i} |", end="")  
-        # Transponer para iterar por piezas y colores
-        for pieza in fila:
-            #ic(pieza[0])
-            if pieza[1] == 'W':
-                print(f" {pieza[0]} |", end="")
-            if pieza[1] == 'B':
-                print(f" {pieza[0]} |", end="")
-            if pieza[1] == ' ':
-                print(f" {pieza[0]} |", end="")
-            
-        print(f" {8-i}")
-        print("  +" + "---+"*8)
-    print("    a   b   c   d   e   f   g   h")
-
 def menu_fen():
     opciones = [
         ("Karo_Cann", 'rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR'),
@@ -97,12 +24,12 @@ def menu_fen():
         except ValueError:
             print("Por favor, introduce un número válido.")
     _, FEN = opciones[eleccion - 1]
-    tablero, color = FENamatriz(FEN)
+    tablero, color = fen.FENamatriz(FEN)
     for f in range(8):
         for c in range(8):
-            tablero[f][c] = traduce(tablero[f][c])
+            tablero[f][c] = traduce.traduce(tablero[f][c])
     
-    imprimir_tablero(tablero, color)
+    tablas.imprimir_tablero(tablero, color)
 
 # Llama al menú
 if __name__ == "__main__":
