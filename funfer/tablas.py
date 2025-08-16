@@ -1,5 +1,7 @@
 ###FER###
 from icecream import ic
+from colorama import Fore, Back, init
+init(autoreset=True)
 
 def poner_color(tablero, color):
     ''' Añade el color a cada pieza del tablero '''
@@ -29,9 +31,9 @@ def imprimir_tablero(tablero, color):
         for pieza in fila:
             # ic(pieza[0])
             if pieza[1] == 'W':
-                print(f" {pieza[0]} |", end="")
+                print(f" {Fore.GREEN + pieza[0]} |", end="")
             if pieza[1] == 'B':
-                print(f" {pieza[0]} |", end="")
+                print(f" {Fore.CYAN + pieza[0]} |", end="")
             if pieza[1] == ' ':
                 print(f" {pieza[0]} |", end="")
 
