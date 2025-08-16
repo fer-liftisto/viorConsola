@@ -1,7 +1,7 @@
 ###FER###
 from icecream import ic
-from colorama import Fore, Back, init
-init(autoreset=True)
+from colorama import Fore, Back, Cursor, init
+init() #autoreset = True
 
 def poner_color(tablero, color):
     ''' Añade el color a cada pieza del tablero '''
@@ -25,19 +25,27 @@ def imprimir_tablero(tablero, color):
     print("    a   b   c   d   e   f   g   h")
     print("  +" + "---+"*8)
     # ic(tablecolor)
-    for i, fila in enumerate(tablecolor):
-        print(f"{8-i} |", end="")
-        # Transponer para iterar por piezas y colores
-        for pieza in fila:
-            # ic(pieza[0])
-            if pieza[1] == 'W':
-                print(f" {Fore.GREEN + pieza[0]} |", end="")
-            if pieza[1] == 'B':
-                print(f" {Fore.CYAN + pieza[0]} |", end="")
-            if pieza[1] == ' ':
-                print(f" {pieza[0]} |", end="")
+    for ifi, fila in enumerate(tablecolor):
+        print(f"{8-ifi} |", end="")
 
-        print(f" {8-i}")
+        for ico, pieza in enumerate(fila):
+            # ic(pieza[0])
+            if ((8-ifi) + ico) % 2 == 0:
+                cuadro_color = Back.BLUE
+            else:
+                cuadro_color = Back.RED
+            
+            if pieza[1] == 'W':
+                print(cuadro_color +
+                      f" {Fore.GREEN + pieza[0]} "+ Back.RESET + Fore.RESET + "|", end="")
+            if pieza[1] == 'B':
+                print(cuadro_color +
+                      f" {cuadro_color + Fore.CYAN + pieza[0]} "+ Back.RESET + Fore.RESET + "|", end="")
+            if pieza[1] == ' ':
+                print(cuadro_color +
+                      f" {cuadro_color + pieza[0]} " + Back.RESET + Fore.RESET + "|", end="")
+
+        print(f" {8-ifi}")
         print("  +" + "---+"*8)
     print("    a   b   c   d   e   f   g   h")
 
