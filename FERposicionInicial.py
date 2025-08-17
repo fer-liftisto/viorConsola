@@ -1,6 +1,8 @@
 
 ###Fer######################
-from icecream import ic
+#from icecream import ic
+from colorama import Fore, Back, init
+init(autoreset=True)
 from funfer import tablas, traduce, fen
 # ic.disable()
 def menu_fen():
@@ -27,6 +29,7 @@ def menu_fen():
     tablero, color = fen.FENamatriz(FEN)
     for f in range(8):
         for c in range(8):
+            pass
             tablero[f][c] = traduce.traduce(tablero[f][c])
     
     tablas.imprimir_tablero(tablero, color)
