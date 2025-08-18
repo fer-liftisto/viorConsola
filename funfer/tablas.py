@@ -31,16 +31,16 @@ def imprimir_tablero(tablero, color):
         for ico, pieza in enumerate(fila):
             # ic(pieza[0])
             if ((8-ifi) + ico) % 2 == 0:
-                cuadro_color = Back.LIGHTBLUE_EX
+                cuadro_color = Back.WHITE
             else:
-                cuadro_color = Back.LIGHTRED_EX
+                cuadro_color = Style.RESET_ALL
             
             if pieza[1] == 'W':
                 print(
-                    f"{cuadro_color + Fore.GREEN + pieza[0]} ", end="")
+                    f"{Style.BRIGHT + cuadro_color + Fore.BLUE + pieza[0]} ", end="")
             if pieza[1] == 'B':
                 print(
-                    f"{cuadro_color + Fore.BLACK + pieza[0]} ", end="")
+                    f"{Style.BRIGHT + cuadro_color + Fore.RED + pieza[0]} ", end="")
             if pieza[1] == ' ':
                 print(
                     f"{cuadro_color + pieza[0]} ", end="")
