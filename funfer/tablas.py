@@ -21,7 +21,7 @@ def imprimir_tablero(tablero, color):
     # ic(tablero)
     # ic(color)
     tablecolor = poner_color(tablero, color)
-    print("\n  Tablero de ajedrez:")
+    print("\n Tablero de ajedrez:")
     print("  a b c d  e f g h")
     #print("  +" + "---+"*8)
     # ic(tablecolor)
@@ -37,14 +37,14 @@ def imprimir_tablero(tablero, color):
             
             if pieza[1] == 'W':
                 print(
-                    f"{Style.BRIGHT + cuadro_color + Fore.BLUE + pieza[0]} ", end="")
+                    f"{Style.BRIGHT + cuadro_color + Fore.MAGENTA + pieza[0]} ", end="")
             if pieza[1] == 'B':
                 print(
-                    f"{Style.BRIGHT + cuadro_color + Fore.RED + pieza[0]} ", end="")
+                    f"{Style.BRIGHT + cuadro_color + Fore.BLUE + pieza[0]} ", end="")
             if pieza[1] == ' ':
                 print(
                     f"{cuadro_color + pieza[0]} ", end="")
-            print(Style.RESET_ALL, end="")
+            
         print(f" {8-ifi}")
         #print("  +" + "---+"*8)
     print("  a b c d  e f g h\n")
