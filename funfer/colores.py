@@ -119,69 +119,58 @@ colorDic = {
 
 ############################
 if __name__ == '__main__':
-def colorClase():
+    def colorClase():
+        print(ColorEs.L_GrisOscuro, 'YUPIII', ColorEs.L_PorDefecto)
+
+        print(ColorEs.L_CieloClaro, 'YUPIII', ColorEs.L_PorDefecto)
+
+        print(ColorEs.L_Rojo, ColorEs.P_Azul, 'YUPIII', ColorEs.P_PorDefecto)
+    #########################
+    # colorClase()
+    ##########################
+    def prueva():
+        print(colorDic['L_Rojo'], 'hola')
+        print(colorDic['L_Verde'], 'hola')
+        print(colorDic['L_Azul'], 'hola')
+        print(colorDic['L_PorDefecto'], 'hola')
+    ###########################
+    # prueva()
+    ############################
+    def prueva1():
+        for i in colorDic:
+            #  todos los colores disponibles
+            print(colorDic[i], 'COLORRR')
+    ############################
+    prueva1()
+    ############################
 
 
-print(ColorEs.L_GrisOscuro, 'YUPIII', ColorEs.L_PorDefecto)
-
-print(ColorEs.L_CieloClaro, 'YUPIII', ColorEs.L_PorDefecto)
-
-print(ColorEs.L_Rojo, ColorEs.P_Azul, 'YUPIII', ColorEs.P_PorDefecto)
-#########################
-# colorClase()
-##########################
-def prueva():
+    def color(color, mensaje):
 
 
-print(colorDic['L_Rojo'], 'hola')
-print(colorDic['L_Verde'], 'hola')
-print(colorDic['L_Azul'], 'hola')
-print(corDic['L_PorDefecto'], 'hola')
-###########################
-# prueva()
-############################
-def prueva1():
+        # pasar el color y el mensaje
+        for i in colorDic:
+            if i == color:
+                print(colorDic[color], mensaje, colorDic['L_PorDefecto'])
+    ############################
+    # color('L_Amarillo','yupi YUu')
+    ##########################
 
 
-for i in colorDic:
-    #  todos los colores disponibles
-print(colorDic[i], 'COLORRR')
-############################
-prueva1()
-############################
+    def colRetornabc(color, mensaje):
+        # pasar el color y el mensaje
+        for i in colorDic:
+            if i == color:
+                return colorDic[color], mensaje, colorDic['L_PorDefecto']
+    ############################
+    # print(colRetornabc('L_Cielo','colRetorna'))
+    ###########################
 
-
-def color(color, mensaje):
-
-
-    # pasar el color y el mensaje
-for i in colorDic:
-if i == color:
-print(colorDic[color], mensaje, colorDic['L_PorDefecto'])
-############################
-# color('L_Amarillo','yupi YUu')
-##########################
-
-
-def colRetornabc(color, mensaje):
-
-
-    # pasar el color y el mensaje
-for i in colorDic:
-if i == color:
-return colorDic[color], mensaje, colorDic['L_PorDefecto']
-############################
-# print(colRetornabc('L_Cielo','colRetorna'))
-###########################
-
-
-def colorRetorna(color, mensaje):
-
-
-    # pasar el color y el mensaje
-for i in colorDic:
-if i == color:
-return colorDic[color]+mensaje+colorDic['L_PorDefecto']
-############################
-# print(colorRetorna('L_Rojo','colorRetorna'))
-############################
+    def colorRetorna(color, mensaje):
+            # pasar el color y el mensaje
+        for i in colorDic:
+            if i == color:
+                return colorDic[color]+mensaje+colorDic['L_PorDefecto']
+    ############################
+    # print(colorRetorna('L_Rojo','colorRetorna'))
+    ############################
