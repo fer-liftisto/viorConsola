@@ -31,9 +31,9 @@ def imprimir_tablero(tablero, color):
         for ico, pieza in enumerate(fila):
             # ic(pieza[0])
             if ((8-ifi) + ico) % 2 == 0:
-                cuadro_color = Back.WHITE
+                cuadro_color = "\x1b[43m" #Back.WHITE
             else:
-                cuadro_color = Style.RESET_ALL
+                cuadro_color = "\x1b[38m"  # Style.RESET_ALL
             
             if pieza[1] == 'W':
                 print(

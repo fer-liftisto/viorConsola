@@ -3,7 +3,7 @@
 #from icecream import ic
 from colorama import Fore, Back, init
 init(autoreset=True)
-from funfer import tablas, traduce, fen
+from funfer import tablas, traduce, fen, colores
 # ic.disable()
 def menu_fen():
     opciones = [
