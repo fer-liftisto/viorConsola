@@ -1,5 +1,7 @@
 ###FER###
 #from icecream import ic
+#proyectos uso ficheros y excel#
+#https: // youtu.be/RaEatqpugCk?si = pojxoNS_X8nxCiL9#
 from colorama import Style, Fore, Back, init
 init(autoreset=True)  # autoreset = True
 

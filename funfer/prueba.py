@@ -1,3 +1,4 @@
+
 opciones = [
     ("Karo_Cann", 'rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR'),
     ("Lima-Quinn (Erevan, 1996)", '1r6/1b2kPp1/pp1nP1Bp/3q4/PP6/8/5QPP/4R1K1'),
@@ -42,7 +43,7 @@ if __name__ == "__main__":
         print(']')
     ############################################################################
     lista_opciones = [ tuple(tex.split(',')) for tex in texto.split("\n")]
-    
+    print(lista_opciones)
     visualiza_lista(lista_opciones)
     
     print('*' * 50)

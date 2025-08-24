@@ -1,1 +1,1 @@
-"\x1b[36m"
+ lista_opciones = [ tuple(tex.split(',')) for tex in texto.split("\n")]
