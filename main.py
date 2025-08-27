@@ -1,5 +1,6 @@
 
 ###Fer######################
+import sys
 from icecream import ic
 from colorama import Fore, Back, init
 init(autoreset=True)
@@ -37,4 +38,8 @@ def menu_fen():
 
 # Llama al menú
 if __name__ == "__main__":
+    ## https: // youtu.be/AMdG7IjgSPM?si = -JYosXsXPQT7igG- ##
+    ## https: // youtu.be/AMdG7IjgSPM?si = ww_7gf-Kn_8EO7gl ##
+    ic("Python executable path:")
+    print(sys.executable)
     menu_fen()
