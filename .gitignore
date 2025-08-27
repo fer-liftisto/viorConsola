@@ -1,4 +1,12 @@
+#Pyton-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
 
+# Virtual environments
+.venv/
 
 
 

@@ -6,10 +6,17 @@ from colorama import Fore, Back, init
 init(autoreset=True)
 from funfer import tablas, traduce, fen, colores
 # ic.disable()
+def una_sola_coma(texto):
+    aparicion = texto.count(',')
+    texto = texto.replace(',', ':', aparicion - 1)
+    return texto
+
+
 def menu_fen():
     with open('funfer/posiciones_fen.txt', 'r', encoding='utf8') as f:
         texto = f.read()
-        opciones = [tuple(tex.split(',')) for tex in texto.split("\n")]
+        una_coma = lambda texto : texto.replace(',',':',texto.count(',') -1) # Si hay más de una coma, solo deja la ultima. Antes de fen
+        opciones = [tuple(una_coma(tex).split(',')) for tex in texto.split("\n")]
         ic(opciones)
     
     
