@@ -1,1 +1,0 @@
- lista_opciones = [ tuple(tex.split(',')) for tex in texto.split("\n")]

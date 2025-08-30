@@ -8,3 +8,11 @@ dependencies = [
     "colorama>=0.4.6",
     "icecream>=2.1.7",
 ]
+
+[tool.ruff]
+lint.extend-select = [
+    'T201'
+]
+lint.ignore = [
+    'E731'
+]
