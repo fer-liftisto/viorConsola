@@ -1,5 +1,6 @@
 ###Fer######################
 import sys
+import os
 from icecream import ic
 
 from funfer import tablas, traduce, fen
@@ -14,12 +15,16 @@ def una_sola_coma(texto):
 
 
 def menu_fen():
-    with open("funfer/posiciones_fen.txt", "r", encoding="utf8") as f:
-        texto = f.read()
-        una_coma = lambda tex: tex.replace(",", ":", tex.count(",") - 1)  # Si hay más de una coma, solo deja la ultima. Antes de fen
-        opciones = [tuple(una_coma(tex).split(",")) for tex in texto.split("\n")]
-        ic(opciones)
-
+    if os.path.exists("funfer/posiciones_fen.txt"):
+        with open("funfer/posiciones_fen.txt", "r", encoding="utf8") as f:
+            texto = f.read()
+            una_coma = lambda tex: tex.replace(",", ":", tex.count(",") - 1)  # Si hay más de una coma, solo deja la ultima. Antes de fen
+            opciones = [tuple(una_coma(tex).split(",")) for tex in texto.split("\n")]
+            ic(opciones)
+    else:
+        print("No se encuentra el archivo posiciones_fen.txt")
+        return
+    
     print("\nElige una posición FEN para mostrar:\n")  # mirar
     for idx, (nombre, _) in enumerate(opciones, 1):
         ic(nombre)
@@ -51,6 +56,14 @@ if __name__ == "__main__":
 
     ## https://youtu.be/nx4E5LWWMvM?si=AR1yPNUb5DzKqlGe ## ruff
     ## https://youtu.be/nx4E5LWWMvM?si=dach21G_p6F-xDUs ## ruff
+    
+    # Para establecer una regla de error enruff, 
+    # descomentar las siguientes líneas en pyproject.toml:
+    #[tool.ruff]
+    #lint.extend-select = [
+    #    'T201'
+    #]
+    
     ic("Python executable path:")
     print(f"Ruta de ejecucion: {sys.executable}")
     menu_fen()

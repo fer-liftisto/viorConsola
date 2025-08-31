@@ -10,9 +10,6 @@ dependencies = [
 ]
 
 [tool.ruff]
-lint.extend-select = [
-    'T201'
-]
 lint.ignore = [
-    'E731'
+    'E731',
 ]
