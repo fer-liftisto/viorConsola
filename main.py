@@ -3,7 +3,7 @@ import sys
 import os
 from icecream import ic
 
-from funfer import tablas, traduce, fen
+from funfer import tablas, traduce, fen, sistema
 
 ic.disable()
 
@@ -15,8 +15,8 @@ def una_sola_coma(texto):
 
 
 def menu_fen():
-    if os.path.exists("funfer/posiciones_fen.txt"):
-        with open("funfer/posiciones_fen.txt", "r", encoding="utf8") as f:
+    if os.path.exists("posiciones_fen.txt"):
+        with open("posiciones_fen.txt", "r", encoding="utf8") as f:
             texto = f.read()
             una_coma = lambda tex: tex.replace(",", ":", tex.count(",") - 1)  # Si hay más de una coma, solo deja la ultima. Antes de fen
             opciones = [tuple(una_coma(tex).split(",")) for tex in texto.split("\n")]
@@ -26,9 +26,15 @@ def menu_fen():
         return
     
     print("\nElige una posición FEN para mostrar:\n")  # mirar
-    for idx, (nombre, _) in enumerate(opciones, 1):
-        ic(nombre)
-        print(f"{idx}. {nombre}")
+    try:
+        for idx, (nombre, _) in enumerate(opciones, 1):
+            ic(nombre)
+            print(f"{idx}. {nombre}")
+    except ValueError:
+        sistema.limpiar_consola()
+        print("\nError al leer las opciones. Asegúrate de que el archivo está correctamente formateado.\n")
+        return
+    
     while True:
         try:
             eleccion = int(input("\nIntroduce el número de la opción: "))
@@ -38,6 +44,7 @@ def menu_fen():
                 print("Opción no válida. Intenta de nuevo.")
         except ValueError:
             print("Por favor, introduce un número válido.")
+    
     _, FEN = opciones[eleccion - 1]
     tablero, color = fen.FENamatriz(FEN)
     for f in range(8):
