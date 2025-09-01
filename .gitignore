@@ -1,8 +1,22 @@
+<<<<<<< HEAD
 funfer/__pycache__/tablas.cpython-312.pyc
 tempCodeRunnerFile.py
 cosas_git.txt
 prueba.py
 Uso_git_tag.txt
 Uso_git_log.txt
+=======
+#Pyton-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+
+# Virtual environments
+.venv/
+
+
+>>>>>>> poner_fichero
 
 
