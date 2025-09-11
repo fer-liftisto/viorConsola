@@ -1,5 +1,9 @@
-Karo_Cann, rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR
-Lima-Quinn  (Erevan, 1996), 1r6/1b2kPp1/pp1nP1Bp/3q4/PP6/8/5QPP/4R1K1
-Mate en 2, 1Rbkrn2/2p1p3/p2n4/2N3Nq/Q5p1/P7/1P6/K1B5
-Torhallsson-Chavez  (Erevan,1996), 4rr1k/4qp1p/4p1p1/3pP1Rb/pp1N1Q2/7B/PPP4P/2K2R2
-Posición inicial", rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
+
+Karo_Cann, rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR 
+Lima-Quinn  (Erevan, 1996), 1r6/1b2kPp1/pp1nP1Bp/3q4/PP6/8/5QPP/4R1K1 w
+Mate en 2, 1Rbkrn2/2p1p3/p2n4/2N3Nq/Q5p1/P7/1P6/K1B5 w
+Torhallsson-Chavez  (Erevan,1996), 4rr1k/4qp1p/4p1p1/3pP1Rb/pp1N1Q2/7B/PPP4P/2K2R2 w
+Posición inicial", rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w
+Sameeh-Ah.Hamed (El Cairo, 1999), 5k2/p3qp2/5bp1/8/P1Q5/1B6/KPPrp1PP/4R3 b - - - -
+Malisaukas-Illescas (Erevan,Olimpiada 1996) tema:enrroque mal protegido, 5r1k/1pr1qpp1/p2Nb3/2P1P3/1P2QR2/6Rp/6P1/7K w
+mate en 2, 5Br1/6P1/5KBk/8/8/8/8/8 w - - - -

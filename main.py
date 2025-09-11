@@ -1,11 +1,11 @@
 ###Fer######################
 import sys
 import os
-from icecream import ic
+from icecream import ic 
 
 from funfer import tablas, traduce, fen, sistema
 
-ic.disable()
+
 
 
 def una_sola_coma(texto):
@@ -15,21 +15,23 @@ def una_sola_coma(texto):
 
 
 def menu_fen():
-    if os.path.exists("posiciones_fen.txt"):
-        with open("posiciones_fen.txt", "r", encoding="utf8") as f:
-            texto = f.read()
+    fen_path = resource_path("mate_en_una.txt")
+    if os.path.exists(fen_path):
+        with open(fen_path, "r", encoding="utf8") as f:
+            texto = f.read().strip() # quita espacios al inicio y final
             una_coma = lambda tex: tex.replace(",", ":", tex.count(",") - 1)  # Si hay más de una coma, solo deja la ultima. Antes de fen
             opciones = [tuple(una_coma(tex).split(",")) for tex in texto.split("\n")]
-            ic(opciones)
+            
     else:
         print("No se encuentra el archivo posiciones_fen.txt")
         return
     
     print("\nElige una posición FEN para mostrar:\n")  # mirar
+    
     try:
         for idx, (nombre, _) in enumerate(opciones, 1):
-            ic(nombre)
             print(f"{idx}. {nombre}")
+    
     except ValueError:
         sistema.limpiar_consola()
         print("\nError al leer las opciones. Asegúrate de que el archivo está correctamente formateado.\n")
@@ -46,14 +48,35 @@ def menu_fen():
             print("Por favor, introduce un número válido.")
     
     _, FEN = opciones[eleccion - 1]
-    tablero, color = fen.FENamatriz(FEN)
+    ic(FEN)
+    FEN = FEN.strip().split(" ")
+    ic(FEN)
+    tablero, color = fen.FENamatriz(FEN[0])
+    
     for f in range(8):
         for c in range(8):
-            pass
             tablero[f][c] = traduce.traduce(tablero[f][c])
-
+    
     tablas.imprimir_tablero(tablero, color)
+    
+    # A quien le toca jugar
+    try:
+        if FEN[1] == "w":
+            print("Juegan las blancas\n")
+        if FEN[1] == "b":
+            print("Juegan las negras\n")
+    except IndexError:
+        pass
+    #    
+    input("Pulsa una tecla para continuar...")
 
+def resource_path(relative_path):
+    """Obtiene la ruta absoluta al recurso, compatible con PyInstaller."""
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 # Llama al menú
 if __name__ == "__main__":
@@ -71,6 +94,6 @@ if __name__ == "__main__":
     #    'T201'
     #]
     
-    ic("Python executable path:")
-    print(f"Ruta de ejecucion: {sys.executable}")
+    
+    print(f"\nRuta de ejecucion: {sys.executable}")
     menu_fen()
