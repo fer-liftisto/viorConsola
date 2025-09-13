@@ -6,7 +6,6 @@
 # https: // youtu.be/RaEatqpugCk?si = pojxoNS_X8nxCiL9#
 
 from colorama import  Fore, init, Back, Style   
-from icecream import ic
 
 init(autoreset=True)  # autoreset = True
 
@@ -20,7 +19,6 @@ def poner_color(tablero, color):
     for fila in table_col:
         union = list(zip(*fila))
         retorno.append(union)
-    ic(retorno)
     return retorno
 
 

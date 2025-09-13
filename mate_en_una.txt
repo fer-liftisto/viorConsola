@@ -6,7 +6,7 @@ Descubiertas, 3Nnr2/R2PkP2/4p3/8/8/4K3/8/3R4 w - - - -
 Bloqueo, 2kr4/8/8/8/Q7/6B1/6K1/8 w - - - -
 Descubierta y jaque doble, 3r4/1pk5/3pP3/2N5/8/8/2R57K w - - - -
 Descubiertas, 8/5B2/4p3/4kp2/3Np3/8/4P3/Q2R2K1 w - - - -
-Bloqueo, 5rk1/8/7P/6N1/8/8/1B62K5 w - - - -
+Bloqueo, 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - - -
 mate del pasillo, 2kr4/2p3R1/3P4/8/8/8/8/1R4K1 w - - - -
 Clavada y Bloqueo, 1rkr2R1/1pnb4/8/8/3Q4/8/8/3R2K w - - - -
 Bloqueo, 3qkn2/1R6/4N3/8/8/8/8/5K2 w - - - -

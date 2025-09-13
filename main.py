@@ -1,57 +1,22 @@
 ###Fer######################
 import sys
-import os
 from icecream import ic 
 
 from funfer import tablas, traduce, fen, sistema
-
-
-
-
-def una_sola_coma(texto):
-    aparicion = texto.count(",")
-    texto = texto.replace(",", ":", aparicion - 1)
-    return texto
-
+##########################################################################
 
 def menu_fen():
-    fen_path = resource_path("mate_en_una.txt")
-    if os.path.exists(fen_path):
-        with open(fen_path, "r", encoding="utf8") as f:
-            texto = f.read().strip() # quita espacios al inicio y final
-            una_coma = lambda tex: tex.replace(",", ":", tex.count(",") - 1)  # Si hay más de una coma, solo deja la ultima. Antes de fen
-            opciones = [tuple(una_coma(tex).split(",")) for tex in texto.split("\n")]
-            
-    else:
-        print("No se encuentra el archivo posiciones_fen.txt")
-        return
+    menu = "seleccion_archivos.txt"
+    que_quieres = fen.seleccionar_nombre_fichero(menu)
     
+    print("\nElige una coleccion para mostrar:\n")
+    fichero = fen.elelige_una_opcion(que_quieres)
+    #fichero = "posiciones_fen.txt"
+    opciones = fen.selecionar_fichero_fen(fichero) # lista de tuplas (nombre, FEN)
     print("\nElige una posición FEN para mostrar:\n")  # mirar
-    
-    try:
-        for idx, (nombre, _) in enumerate(opciones, 1):
-            print(f"{idx}. {nombre}")
-    
-    except ValueError:
-        sistema.limpiar_consola()
-        print("\nError al leer las opciones. Asegúrate de que el archivo está correctamente formateado.\n")
-        return
-    
-    while True:
-        try:
-            eleccion = int(input("\nIntroduce el número de la opción: "))
-            if 1 <= eleccion <= len(opciones):
-                break
-            else:
-                print("Opción no válida. Intenta de nuevo.")
-        except ValueError:
-            print("Por favor, introduce un número válido.")
-    
-    _, FEN = opciones[eleccion - 1]
-    ic(FEN)
-    FEN = FEN.strip().split(" ")
-    ic(FEN)
-    tablero, color = fen.FENamatriz(FEN[0])
+    FEN= fen.elige_opcion_mostrar(opciones)
+    #  FEN= ["5Br1/6P1/5KBk/8/8/8/8/8", "w", "-", "-", "-", "-"]
+    tablero, color = fen.FENamatriz(FEN[0])  
     
     for f in range(8):
         for c in range(8):
@@ -69,14 +34,6 @@ def menu_fen():
         pass
     #    
     input("Pulsa una tecla para continuar...")
-
-def resource_path(relative_path):
-    """Obtiene la ruta absoluta al recurso, compatible con PyInstaller."""
-    try:
-        base_path = sys._MEIPASS
-    except AttributeError:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
 
 # Llama al menú
 if __name__ == "__main__":

@@ -1,0 +1,2 @@
+posiciones_fen.txt
+mate_en_una.txt
