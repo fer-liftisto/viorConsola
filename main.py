@@ -6,27 +6,35 @@ from funfer import tablas, fen, sistema
 ##########################################################################
 
 def menu_fen():
-    menu = "seleccion_archivos.txt"
-    que_quieres = fen.seleccionar_nombre_fichero(menu)
+    otra_vez = True
+    while True:
+        if  otra_vez:
+            menu = "seleccion_archivos.txt"
+            que_quieres = fen.seleccionar_nombre_fichero(menu)
+        
+            print("\nElige una coleccion para mostrar:\n")
+            fichero = fen.elelige_una_opcion(que_quieres)
+        # fichero = "posiciones_fen.txt"
+        opciones = fen.selecionar_fichero_fen(fichero) # lista de tuplas (nombre, FEN)
+        otra_vez = False
+        print("\nElige una posición FEN para mostrar:\n")  # mirar
+        FEN= fen.elige_opcion_mostrar(opciones)
+        #  FEN= ["5Br1/6P1/5KBk/8/8/8/8/8", "w", "-", "-", "-", "-"]
+        
+        tablero, color = fen.FENamatriz(FEN[0])  
+        
+        tablero = tablas.traduce_ingles_a_piezas(tablero)
+        
+        tablas.imprimir_tablero(tablero, color)
+        
+        tablas.a_quien_le_toca_jugar(FEN)
     
-    print("\nElige una coleccion para mostrar:\n")
-    fichero = fen.elelige_una_opcion(que_quieres)
-    # fichero = "posiciones_fen.txt"
-    opciones = fen.selecionar_fichero_fen(fichero) # lista de tuplas (nombre, FEN)
-    
-    print("\nElige una posición FEN para mostrar:\n")  # mirar
-    FEN= fen.elige_opcion_mostrar(opciones)
-    #  FEN= ["5Br1/6P1/5KBk/8/8/8/8/8", "w", "-", "-", "-", "-"]
-    
-    tablero, color = fen.FENamatriz(FEN[0])  
-    
-    tablero = tablas.traduce_ingles_a_piezas(tablero)
-    
-    tablas.imprimir_tablero(tablero, color)
-    
-    tablas.a_quien_le_toca_jugar(FEN)
-  
-    input("Pulsa una tecla para continuar...")
+        opc= input("Pulsa Cambiar, Salir o una tecla para continuar... ")
+        if opc.lower() == 'salir':
+            print("Saliendo del programa...")
+            break
+        elif opc.lower() == 'cambiar':
+            otra_vez = True
 
 # Llama al menú
 if __name__ == "__main__":
