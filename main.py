@@ -2,7 +2,7 @@
 import sys
 from icecream import ic 
 
-from funfer import tablas, traduce, fen, sistema
+from funfer import tablas, fen, sistema
 ##########################################################################
 
 def menu_fen():
@@ -11,28 +11,21 @@ def menu_fen():
     
     print("\nElige una coleccion para mostrar:\n")
     fichero = fen.elelige_una_opcion(que_quieres)
-    #fichero = "posiciones_fen.txt"
+    # fichero = "posiciones_fen.txt"
     opciones = fen.selecionar_fichero_fen(fichero) # lista de tuplas (nombre, FEN)
+    
     print("\nElige una posición FEN para mostrar:\n")  # mirar
     FEN= fen.elige_opcion_mostrar(opciones)
     #  FEN= ["5Br1/6P1/5KBk/8/8/8/8/8", "w", "-", "-", "-", "-"]
+    
     tablero, color = fen.FENamatriz(FEN[0])  
     
-    for f in range(8):
-        for c in range(8):
-            tablero[f][c] = traduce.traduce(tablero[f][c])
+    tablero = tablas.traduce_ingles_a_piezas(tablero)
     
     tablas.imprimir_tablero(tablero, color)
     
-    # A quien le toca jugar
-    try:
-        if FEN[1] == "w":
-            print("Juegan las blancas\n")
-        if FEN[1] == "b":
-            print("Juegan las negras\n")
-    except IndexError:
-        pass
-    #    
+    tablas.a_quien_le_toca_jugar(FEN)
+  
     input("Pulsa una tecla para continuar...")
 
 # Llama al menú
@@ -53,4 +46,5 @@ if __name__ == "__main__":
     
     
     print(f"\nRuta de ejecucion: {sys.executable}")
+    sistema.limpiar_consola()
     menu_fen()

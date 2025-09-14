@@ -6,10 +6,12 @@
 # https: // youtu.be/RaEatqpugCk?si = pojxoNS_X8nxCiL9#
 
 from colorama import  Fore, init, Back, Style   
+from funfer import traduce
 
+#inicia colorama
 init(autoreset=True)  # autoreset = True
 
-
+###########################################################################################
 def poner_color(tablero, color):
     """Añade el color a cada pieza del tablero"""
 
@@ -21,7 +23,7 @@ def poner_color(tablero, color):
         retorno.append(union)
     return retorno
 
-
+############################################################################################
 def imprimir_tablero(tablero, color):
     """Imprime el tablero de ajedrez con colores"""    
     tablecolor = poner_color(tablero, color)
@@ -50,7 +52,23 @@ def imprimir_tablero(tablero, color):
 
     print("  a b c d  e f g h\n")
 
-    
+###############################################################################################
+def traduce_ingles_a_piezas(tablero):
+    for f in range(8):
+        for c in range(8):
+            tablero[f][c] = traduce.traduce(tablero[f][c])
+    return tablero
+
+###############################################################################################
+def a_quien_le_toca_jugar(FEN):
+    """Indica a quien le toca jugar"""
+    try:
+            if FEN[1] == "w":
+                print("Juegan las blancas\n")
+            if FEN[1] == "b":
+                print("Juegan las negras\n")
+    except IndexError:
+            pass
     
 # ________________________________________________________________
 if __name__ == "__main__":
